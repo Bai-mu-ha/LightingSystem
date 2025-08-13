@@ -46,7 +46,8 @@
 
 #### 1. **设备管理界面**
 <img src="docs/screenshots/APP_Device.png" alt="设备管理界面" width="270" height="480">
-#### 2. **登录界面**
+
+#### 2. **设备管理界面**
 <img src="docs/screenshots/APP_Login.jpg" alt="设备管理界面" width="270" height="480">
 
 #### 3. **主界面**
