@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能灯光控制与语音交互系统</title>
+    <style>
+        /* 基本样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/static/pages/your-background-image.jpg'); /* 背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* 顶部整体区域 */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 60px 20px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* 主标题 */
+        .header-title {
+            font-size: 3.8em;
+            margin: 0;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        /* 顶部的下载按钮 */
+        .download-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            transform: translateY(-2px);
+        }
+
+        /* 模块样式 */
+        .section, .project-background, .system-goals {
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            margin: 20px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .project-background {
+            animation-delay: 0.3s;
+        }
+        .system-goals {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            font-size: 1.1em;
+            margin-left: 20px;
+            line-height: 1.8em;
+        }
+
+        /* 模块布局 */
+        .module-box {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .module {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            min-width: 250px;
+            text-align: center;
+            font-size: 1em;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .module:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .module h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ff7e00;
+        }
+
+        /* 按钮区域 */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .buttons-container button {
+            padding: 16px 35px;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .buttons-container button:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+
+        /* 底部版权 */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.75);
+            font-size: 0.9em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .header-title {
+                font-size: 2.8em;
+            }
+
+            .module-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .module {
+                width: 80%;
+                margin: 10px 0;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部区域 -->
+<header>
+    <a class="download-btn" href="/static/pages/XQwen.apk" download>下载APP</a>
+    <h1 class="header-title">智能灯光控制与语音交互系统</h1>
+</header>
+
+<!-- 项目背景 -->
+<div class="project-background">
+    <h2>项目背景</h2>
+    <p>随着智能家居技术的不断发展，市场对智能灯光控制系统的需求逐渐增大。特别是在节能和个性化的需求驱动下，智能灯光系统正在成为家庭和商业空间的重要组成部分。</p>
+    <ul>
+        <li>🔍 市场需求趋势日益增加，尤其在智能家居和环保节能方面。</li>
+        <li>💡 灯光控制不再仅仅局限于开关，用户希望通过更丰富的方式控制灯光。</li>
+        <li>🎤 语音识别技术快速发展，用户希望通过语音与设备进行互动。</li>
+    </ul>
+</div>
+
+<!-- 系统目标 -->
+<div class="system-goals">
+    <h2>系统目标</h2>
+    <p><strong>核心功能：</strong></p>
+    <ul>
+        <li>🔵 多模式灯光控制（颜色/亮度/动态效果）</li>
+        <li>🎤 语音交互：调用云端AI实现自然对话</li>
+    </ul>
+    <p><strong>技术指标：</strong></p>
+    <ul>
+        <li>⏱ 指令响应延迟 &lt; 500ms</li>
+        <li>💡 支持1000+色值调节</li>
+    </ul>
+</div>
+
+<!-- 产品介绍 -->
+<div class="section">
+    <h2>产品介绍</h2>
+    <p>本系统结合物联网、语音识别与智能硬件控制，打造了一套高效、便捷、智能的灯光控制方案。</p>
+    <ul>
+        <li><strong>🌈 灯光开关控制：</strong> 一键开关灯光，简单便捷。</li>
+        <li><strong>💡 亮度调节：</strong> 0%-100%无级亮度调节，适配各种场景。</li>
+        <li><strong>🎨 色彩切换：</strong> 内置1000+种色值选择，打造个性空间。</li>
+        <li><strong>🚀 动态灯效：</strong> 呼吸灯、渐变灯、闪烁等多种模式。</li>
+        <li><strong>🎤 语音识别控制：</strong> 通过云端AI语音识别，自然交互。</li>
+        <li><strong>📱 移动端远程控制：</strong> 无论身处何地，轻松控制家中灯光。</li>
+        <li><strong>⚡ 实时状态反馈：</strong> APP界面实时同步灯光状态。</li>
+        <li><strong>🔒 安全稳定：</strong> 数据加密传输，保障隐私安全。</li>
+        <li><strong>🔌 兼容拓展：</strong> 兼容多种灯具设备，支持未来扩展。</li>
+    </ul>
+</div>
+
+<!-- 系统架构 -->
+<div class="section">
+    <h2>系统架构</h2>
+    <p><strong>整体架构图：</strong></p>
+    <img src="/static/pages/first.png" alt="系统架构图" style="max-width: 100%; border-radius: 15px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);">
+
+    <div class="module-box">
+        <div class="module">
+            <h3>用户层</h3>
+            <p>手机APP（控制+语音输入）</p>
+        </div>
+        <div class="module">
+            <h3>服务层</h3>
+            <p>云端AI（语音识别/NLP）</p>
+        </div>
+        <div class="module">
+            <h3>执行层</h3>
+            <p>树莓派（灯光控制+音频输出）</p>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <p>© 2025 智能灯光控制与语音交互系统，版权所有。</p>
+</div>
+
+</body>
+</html>

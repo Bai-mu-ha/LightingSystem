@@ -1,0 +1,14 @@
+tunnel: f178527b-9861-4331-b6dd-9bd14c282913
+credentials-file: D:\code\Java\myServer\cloudflared\f178527b-9861-4331-b6dd-9bd14c282913.json
+origin-ca-pool: D:\code\Java\myServer\cloudflared\cert.pem
+
+ingress:
+  - hostname: light.uphengbai77.xyz
+    service: https://localhost:443
+    originRequest:
+      noTLSVerify: true       # 跳过本地证书验证
+      connectTimeout: 30s     # 增加连接超时
+      http2Origin: true       # 启用HTTP/2
+      keepAlive: 30s          # 保持连接
+      disableChunkedEncoding: true  # 禁用分块编码
+  - service: http_status:404
