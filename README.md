@@ -45,22 +45,21 @@
 以下是APP各个界面的截图，展示了用户如何通过移动端控制灯光设备。
 
 #### 1. **设备管理界面**
-![设备管理界面](docs/screenshots/APP_Device.png)
-
+![设备管理界面]<img src="docs/screenshots/APP_Device.png" alt="设备管理界面" width="600" height="400">
 #### 2. **登录界面**
-![登录界面](docs/screenshots/APP_Login.jpg)
+![登录界面]<img src="docs/screenshots/APP_Login.jpg" alt="设备管理界面" width="600" height="400">
 
 #### 3. **主界面**
-![主界面](docs/screenshots/APP_Main.jpg)
+![主界面]<img src="docs/screenshots/APP_Main.jpg" alt="设备管理界面" width="600" height="400">
 
 #### 4. **注册界面**
-![注册界面](docs/screenshots/APP_Register.jpg)
+![注册界面]<img src="docs/screenshots/APP_Register.jpg" alt="设备管理界面" width="600" height="400">
 
 #### 5. **设置界面**
-![设置界面](docs/screenshots/APP_Setting.jpg)
+![设置界面]<img src="docs/screenshots/APP_Setting.jpg" alt="设备管理界面" width="600" height="400">
 
 #### 6. **用户界面**
-![用户界面](docs/screenshots/APP_User.jpg)
+![用户界面]<img src="docs/screenshots/APP_User.jpg" alt="设备管理界面" width="600" height="400">
 
 ### 动态灯光控制引擎
 系统支持七种灯光模式，包括：
