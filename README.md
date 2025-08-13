@@ -4,7 +4,7 @@
 
 本项目是一个基于树莓派的智能灯光与语音交互系统。系统通过使用树莓派4B与WS2812B灯带，结合语音识别与控制，实现智能灯光的远程操控、动态模式控制与语音交互。用户可以通过手机APP或语音命令控制灯光的亮度、颜色及模式，提供便捷的智能家居体验。
 
-![实物展示图](docs/screenshots/LightStrip.png)  <!-- 替换为灯光亮的实物图（LightStrip.png） -->
+<img src="docs/screenshots/LightStrip.png" alt="实物展示图" width="600" height="400">
 
 ## 主要功能
 
